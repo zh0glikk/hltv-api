@@ -25,6 +25,6 @@ class TopTeamsParserTest {
     public void testGetContent() {
         TopTeamsParser topTeamsParser = new TopTeamsParser();
 
-        topTeamsParser.getContent();
+        System.out.println(topTeamsParser.getContent());
     }
 }

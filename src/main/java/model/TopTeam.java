@@ -8,7 +8,7 @@ import lombok.ToString;
 
 import java.util.List;
 
-@ToString
+
 @AllArgsConstructor
 @Getter
 @Setter
@@ -17,4 +17,15 @@ public class TopTeam {
     private String name;
     private String points;
     private List<String> players;
+    private List<String> urls;
+
+    @Override
+    public String toString() {
+        return "TopTeam{" +
+                "position='" + position + '\'' +
+                ", name='" + name + '\'' +
+                ", points='" + points + '\'' +
+                ", players=" + players +
+                '}';
+    }
 }

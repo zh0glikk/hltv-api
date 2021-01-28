@@ -33,8 +33,9 @@ public class TopTeamsParser extends WebParser{
             String points = this.getPoints(el);
 
             List<String> players = this.getPlayers(el);
+            List<String> urls = this.getUrls(el);
 
-            TopTeam topTeam = new TopTeam(position, name, points, players);
+            TopTeam topTeam = new TopTeam(position, name, points, players, urls);
             topTeams.add(topTeam);
         }
 
@@ -57,6 +58,18 @@ public class TopTeamsParser extends WebParser{
         return el.getElementsByClass("points")
                 .get(0)
                 .text();
+    }
+
+    private List<String> getUrls(Element el) {
+        List<String> urls = new ArrayList<>();
+        Elements playersEl = el.getElementsByClass("player-holder");
+
+        for ( Element element : playersEl ) {
+            String url = element.getElementsByClass("pointer").attr("href");
+
+            urls.add(url);
+        }
+        return urls;
     }
 
     private List<String> getPlayers(Element el) {
