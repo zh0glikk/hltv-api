@@ -15,7 +15,7 @@ import java.util.List;
 public class ResultsParser extends WebParser{
 
     public ResultsParser() {
-        this(urlConstants.MATCHES_TOP_TEAR_URL);
+        this(urlConstants.BIG_RESULTS_URL);
     }
 
     public ResultsParser(String URL) {

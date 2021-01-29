@@ -21,4 +21,11 @@ class ResultsParserTest {
         assertNotNull(resultsParser.doc);
     }
 
+    @Test
+    public void output() {
+        ResultsParser resultsParser = new ResultsParser();
+
+        assertNotNull(resultsParser.getContent());
+    }
+
 }
