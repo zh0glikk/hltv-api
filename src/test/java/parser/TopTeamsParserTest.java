@@ -1,7 +1,10 @@
 package parser;
 
 import constants.urlDynamic;
+import model.TopTeam;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,6 +28,10 @@ class TopTeamsParserTest {
     public void testGetContent() {
         TopTeamsParser topTeamsParser = new TopTeamsParser();
 
-        System.out.println(topTeamsParser.getContent());
+        List<TopTeam> topTeamList = topTeamsParser.getContent();
+
+        for ( TopTeam topTeam : topTeamList ) {
+            System.out.println(topTeam);
+        }
     }
 }

@@ -19,6 +19,8 @@ public class TopTeam {
     private List<String> players;
     private List<String> urls;
 
+    private String photoUrl;
+
     @Override
     public String toString() {
         return "TopTeam{" +
@@ -26,6 +28,9 @@ public class TopTeam {
                 ", name='" + name + '\'' +
                 ", points='" + points + '\'' +
                 ", players=" + players +
+                ", urls=" + urls +
+                ", photoUrl='" + photoUrl + '\'' +
                 '}';
     }
+
 }

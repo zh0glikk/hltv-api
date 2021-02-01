@@ -1,7 +1,6 @@
 package parser;
 
 import constants.urlDynamic;
-import model.Result;
 import model.TopTeam;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -35,7 +34,9 @@ public class TopTeamsParser extends WebParser{
             List<String> players = this.getPlayers(el);
             List<String> urls = this.getUrls(el);
 
-            TopTeam topTeam = new TopTeam(position, name, points, players, urls);
+            String photoUrl = this.getPhotoUrl(el);
+
+            TopTeam topTeam = new TopTeam(position, name, points, players, urls, photoUrl);
             topTeams.add(topTeam);
         }
 
@@ -84,5 +85,12 @@ public class TopTeamsParser extends WebParser{
         return players;
     }
 
+    public String getPhotoUrl(Element el) {
+        return el.getElementsByClass("team-logo")
+                .get(0)
+                .getElementsByAttribute("src")
+                .get(0)
+                .attr("src");
+    }
 
 }
