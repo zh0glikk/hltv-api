@@ -43,6 +43,8 @@ public class PlayersParser extends WebParser {
 
         float deathPerRound = this.getDeathPerRound(statsContainer);
 
+        String photoUrl = this.getPhotoUrl(playerContainer);
+
         Player player = new Player(
                 nickName,
                 realName,
@@ -52,7 +54,8 @@ public class PlayersParser extends WebParser {
                 killsPerRound,
                 headshots,
                 mapsPlayed,
-                deathPerRound
+                deathPerRound,
+                photoUrl
         );
 
         players.add(player);
@@ -143,5 +146,14 @@ public class PlayersParser extends WebParser {
                 .getElementsByClass("statsVal")
                 .get(0)
                 .text());
+    }
+
+    public String getPhotoUrl(Elements playerContainer) {
+        return playerContainer.get(0)
+                .getElementsByClass("playerBodyshot")
+                .get(0)
+                .getElementsByClass("bodyshot-img")
+                .get(0)
+                .attr("src");
     }
 }

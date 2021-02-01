@@ -31,6 +31,8 @@ class PlayersParserTest {
         assertNotEquals(player.getMapsPlayed(), 0);
         assertNotEquals(player.getDeathPerRound(), 0.0);
 
+        assertNotNull(player.getPhotoUrl());
+
 
 
     }

@@ -20,4 +20,6 @@ public class Player {
     private String headshots;
     private int mapsPlayed;
     private float deathPerRound;
+
+    private String photoUrl;
 }
