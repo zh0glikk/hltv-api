@@ -3,8 +3,10 @@ package constants;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.OffsetDateTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class urlDynamic {
     private static String TOP_TEAMS_URL = "https://www.hltv.org/ranking/teams/";
@@ -19,7 +21,17 @@ public class urlDynamic {
             int diff = dow.getValue() - DayOfWeek.MONDAY.getValue();
 
             date -= diff;
+        } else {
+            Date d = new Date(); // hltv-top updates after 20:00
+            Calendar calendar = GregorianCalendar.getInstance();
+
+            calendar.setTime(d);
+
+            if ( calendar.get(Calendar.HOUR_OF_DAY) < 20 ) {
+                date -= 7;
+            }
         }
+
         if ( date < 0 ) {
             month = currentDate.getMonth().minus(1);
             date += month.length(currentDate.isLeapYear());
